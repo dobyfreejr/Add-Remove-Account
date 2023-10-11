@@ -25,8 +25,8 @@ while IFS= read -r full_name; do
         # Create the user account with the specified username
         sudo useradd -m -s /bin/bash "$username"
 
-        # Set the user's password to "Snapple24"
-        echo "$username:Snapple24" | sudo chpasswd
+        # Set the user's password to "Password"
+        echo "$username:Password" | sudo chpasswd
 
         # Add the user to the sudo group
         sudo usermod -aG sudo "$username"
