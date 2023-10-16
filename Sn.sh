@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the file containing first names, one per line
-names_file="first_names.txt"
+names_file="random_name.txt"
 
 # Check if the names file exists
 if [ ! -f "$names_file" ]; then
@@ -22,7 +22,7 @@ while IFS= read -r first_name; do
         sudo useradd -m -s /bin/bash "$username"
 
         # Set the user's password to "Password"
-        echo "$username:Password" | sudo chpasswd
+        echo "$username:password" | sudo chpasswd
 
         # Add the user to the sudo group
         sudo usermod -aG sudo "$username"
@@ -30,6 +30,6 @@ while IFS= read -r first_name; do
         # Add the user to the sudoers file
         echo "$username ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 
-        echo "User $username created with sudo privileges and password Snapple24."
+        echo "User $username created with sudo privileges and password ."
     fi
 done < "$names_file"
